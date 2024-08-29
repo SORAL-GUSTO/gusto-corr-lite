@@ -7,7 +7,7 @@
 
 
 // function to process correlator lag file
-void const callback(char *filein, int refhot);
+void const callback(char *filein);
 
 // structure to hold lag data
 struct corrType

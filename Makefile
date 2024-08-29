@@ -16,20 +16,14 @@ else
 
 endif
 
-corrspec: corrspec.c corrspec.h callback.c callback.h influx.c influx.h search_glob.c
+corrspec: corrspec.c corrspec.h callback.c callback.h influx.c influx.h
 	$(CXX) -c callback.c $(INCLUDES) $(CFLAGS) $(LIBS)
 	$(CXX) -c corrspec.c $(INCLUDES) $(CFLAGS) $(LIBS)
 	$(CXX) -c influx.c $(INCLUDES) $(CFLAGS) $(LIBS)
-	$(CXX) -c search_glob.c $(INCLUDES) $(CFLAGS) $(LIBS)
-	$(CXX) -o corrspec corrspec.o callback.o influx.o search_glob.o $(INCLUDES) $(CFLAGS) $(LIBS)
+	$(CXX) -o corrspec corrspec.o callback.o influx.o $(INCLUDES) $(CFLAGS) $(LIBS)
 
-influx_reader: influx_reader.c influx.c influx.h
-	$(CXX) -c influx_reader.c $(INCLUDES) $(CFLAGS) $(LIBS)
-	$(CXX) -c influx.c $(INCLUDES) $(CFLAGS) $(LIBS)
-	$(CXX) -o influx_reader influx_reader.o influx.o $(INCLUDES) $(CFLAGS) $(LIBS)
-
-all: corrspec influx_reader
+all: corrspec
 
 clean:
-	rm corrspec influx_reader *.o
+	rm corrspec *.o
 
